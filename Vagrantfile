@@ -12,14 +12,16 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "CentOS-6.7-x86_64-varnish-vmod-dev"
-  config.vm.box_url = "https://s3.amazonaws.com/platform-repo.ec2.nytimes.com/dev/shared/virtualbox/CentOS-6.7-x86_64-varnish-vmod-dev.box"
+  config.vm.box = "CentOS-6.7-varnish-dev-1.0.5-x86_64"
+  config.vm.box_url = "https://s3.amazonaws.com/platform-repo.ec2.nytimes.com/dev/shared/virtualbox/CentOS-6.7-varnish-dev-1.0.5-x86_64.box"
   config.vm.hostname = "localhost.localdomain"
   config.vm.network :private_network, ip: "192.168.33.67"
+  config.vm.synced_folder "/Users/202238/projects", "/projects"
   config.vm.provider "virtualbox" do |v|
     v.memory = 2048
     v.cpus = 2
   end
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
